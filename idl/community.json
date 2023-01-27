@@ -1,0 +1,677 @@
+{
+  "version": "0.1.0",
+  "name": "community",
+  "instructions": [
+    {
+      "name": "createCommunity",
+      "accounts": [
+        {
+          "name": "communityOwner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "addModerator",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "user",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "addUser",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "user",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "removeModerator",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "user",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "removeUser",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "user",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "deleteCommunity",
+      "accounts": [
+        {
+          "name": "communityOwner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createCommunityProduct",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "product",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "id",
+          "type": "u64"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "imageUrl",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "f64"
+        },
+        {
+          "name": "price",
+          "type": "f64"
+        },
+        {
+          "name": "oldPrice",
+          "type": "f64"
+        }
+      ]
+    },
+    {
+      "name": "editCommunityProduct",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "product",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "id",
+          "type": "u64"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "imageUrl",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "f64"
+        },
+        {
+          "name": "price",
+          "type": "f64"
+        },
+        {
+          "name": "oldPrice",
+          "type": "f64"
+        }
+      ]
+    },
+    {
+      "name": "deleteCommunityProduct",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "product",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createUserState",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "removeCommunityInState",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "userState",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "editCommunityMemberData",
+      "accounts": [
+        {
+          "name": "communityAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "communityMember",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "profilePictureUrl",
+          "type": "string"
+        },
+        {
+          "name": "user",
+          "type": "publicKey"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Community",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
+          },
+          {
+            "name": "tokenMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenAccount",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "users",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "moderators",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "wallet",
+            "type": "publicKey"
+          },
+          {
+            "name": "products",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "isPublic",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommunityProduct",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "imageUrl",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": "f64"
+          },
+          {
+            "name": "price",
+            "type": "f64"
+          },
+          {
+            "name": "oldPrice",
+            "type": "f64"
+          },
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "community",
+            "type": "publicKey"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommunityMember",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
+          },
+          {
+            "name": "tokenMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenAccount",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "profilePictureUrl",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
+          },
+          {
+            "name": "joinedCommunities",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "moderatedCommunities",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "ownedCommunities",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "CommunityNotInitialized"
+    },
+    {
+      "code": 6001,
+      "name": "UnAuthorized"
+    },
+    {
+      "code": 6002,
+      "name": "UserLimitReached"
+    },
+    {
+      "code": 6003,
+      "name": "UserAlreadyModerator"
+    },
+    {
+      "code": 6004,
+      "name": "UserNotModerator"
+    },
+    {
+      "code": 6005,
+      "name": "UserAlreadyMember"
+    },
+    {
+      "code": 6006,
+      "name": "UserNotMember"
+    },
+    {
+      "code": 6007,
+      "name": "CommunityProductLimitReached"
+    },
+    {
+      "code": 6008,
+      "name": "CommunityProductAlreadyExists"
+    },
+    {
+      "code": 6009,
+      "name": "UserStateAlreadyInitialized"
+    },
+    {
+      "code": 6010,
+      "name": "UserStateNotInitialized"
+    }
+  ],
+  "metadata": {
+    "address": "H5gdZMXhmQNxcWy7Y5YR4qw9Vhp2Dua9BdaVq2sHSfFE"
+  }
+}

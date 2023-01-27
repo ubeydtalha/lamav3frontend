@@ -6,7 +6,7 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: rgba(180, 17, 17, 0.5);
   --background-end-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(
@@ -85,16 +85,37 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+.bg {
+  color: rgba(30, 3, 39, 0.9);
+  background: 
+            linear-gradient(217deg, rgba(51, 3, 60, 0.8), rgba(64, 13, 50, 0.569) 70.71%),
+            linear-gradient(127deg, rgba(53, 12, 43, 0.8), rgba(21, 20, 21, 0.703) 70.71%),
+            linear-gradient(336deg, rgba(45, 4, 26, 0.8), rgba(22, 22, 22, 0.691) 70.71%);
+  /* linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      rgba(23, 3, 43, 0.9)
     )
-    rgb(var(--background-start-rgb));
+    rgba(48, 5, 75, 0.9); */
+  background-attachment: fixed;
+  /* backdrop-filter: blur(25px); */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  position: absolute;
 }
 
+.blur {
+  background: rgba(25, 23, 23, 0.265);
+  backdrop-filter: blur(25px); 
+  height: 100%;
+	width: 100%;
+  z-index: -1;
+  position: absolute;
+}
 a {
   color: inherit;
   text-decoration: none;
