@@ -2,18 +2,21 @@
 import { Container } from '@mui/material'
 import { StyledEngineProvider } from '@mui/material/styles';
 
-import React, { FC, useMemo } from 'react';
+import React, { FC, useMemo, PropsWithChildren } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
-import { WalletDialogProvider} from '@solana/wallet-adapter-material-ui';
+import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 
-import {WalletModalProvider } from '@solana/wallet-adapter-react-ui'
-
-type Props = {}
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
+import {store} from './store';
+import { Provider } from 'react-redux';
+interface WalletProps {
+    children: any;
+}
 require('@solana/wallet-adapter-react-ui/styles.css');
-const Wallet: FC = ({children}) => {
+const Wallet: FC<PropsWithChildren<WalletProps>> = ({ children }) => {
     // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
     const network = WalletAdapterNetwork.Devnet;
 
@@ -41,17 +44,20 @@ const Wallet: FC = ({children}) => {
     );
 
     return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} autoConnect>
-                <WalletDialogProvider>
-                    <StyledEngineProvider injectFirst >
-                        <Container disableGutters={true}>
-                            {children}
-                        </Container>
-                    </StyledEngineProvider>
-                </WalletDialogProvider>
-            </WalletProvider>
-        </ConnectionProvider>
+
+        <Provider store={store}>
+            <ConnectionProvider endpoint={endpoint}>
+                <WalletProvider wallets={wallets} autoConnect>
+                    <WalletDialogProvider>
+                        <StyledEngineProvider injectFirst >
+                            <Container disableGutters={true}>
+                                {children}
+                            </Container>
+                        </StyledEngineProvider>
+                    </WalletDialogProvider>
+                </WalletProvider>
+            </ConnectionProvider>
+        </Provider>
     );
 }
 

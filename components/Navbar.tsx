@@ -33,7 +33,7 @@ const MaterialUIWalletMultiButtonDynamic = dynamic(
   { ssr: false }
 );
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
@@ -44,13 +44,13 @@ function Navbar() {
   const router = useRouter();
 
 
-  React.useEffect(() => {
-      if (publicKey && connection) {
-        router.push('/hallway')
-      }
-    },
-    [connection, publicKey]
-    )
+  // React.useEffect(() => {
+  //     if (publicKey && connection) {
+  //       router.push('/hallway')
+  //     }
+  //   },
+  //   [connection, publicKey]
+  //   )
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);

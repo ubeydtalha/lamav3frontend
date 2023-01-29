@@ -5,6 +5,10 @@ import {
 } from '@project-serum/anchor';
 import idl from '@/idl/community.json';
 
+type User = {
+  id: string
+  name?: string
+}
 
 export default function userHandler(
     req: NextApiRequest,
